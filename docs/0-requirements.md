@@ -17,7 +17,14 @@ There are many old people that may sign up for these, so I will need to make sur
 
 ## Proposed Solution
 
-Replace this text with a brief statement about the system that you intend to create, including the key functionality it should have.
+this is a project that will help a lady at my church to organize events/workshops 
+and keep track of people who sign up. People can also sign up to workshops in this website.
+
+- It will have a secure back-end/admin that the lady can access and add or remove workshops and view numbers of people who are attending
+- It will have a list of all the workshops that people can click on to register
+- It will have a page where people can see all the workshops that they have signed up for
+- People will be able to click on the workshops to see more information about them, like who is running it, when it is, ect.
+- it will have a similar theme to the main church website
 
 
 ---

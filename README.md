@@ -13,8 +13,8 @@ and keep track of people who sign up. People can also sign up to workshops in th
 - It will have a secure back-end/admin that the lady can access and add or remove workshops and view numbers of people who are attending
 - It will have a list of all the workshops that people can click on to register
 - It will have a page where people can see all the workshops that they have signed up for
-- People will be able to 
-- Feature 5 here
+- People will be able to click on the workshops to see more information about them, like who is running it, when it is, ect.
+- it will have a similar theme to the main church website
 
 
 ---
