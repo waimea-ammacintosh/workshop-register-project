@@ -14,7 +14,7 @@ Develop a prototype that simulates the key functionality of the system, then tes
 
 Replace this text with notes regarding the DB design.
 
-![SCREENSHOT OF DB DESIGN](screenshots/example.png)
+![SCREENSHOT OF DB DESIGN](screenshots/db1.png)
 
 
 ---
@@ -25,17 +25,31 @@ The first stage of prototyping was to explore how the UI might 'flow' between st
 
 This Figma demo shows the initial design for the UI 'flow':
 
-**FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT**
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="350" height="450" src=https://www.figma.com/proto/651HVDrM6SQ1mM6cJqOV0h/register-flow-v1?node-id=0-1&t=FQmPMMEXUKwYsxWB-1 allowfullscreen></iframe>
+
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+I talked with my user about what they thought of my flow, and they came up with some new improvements. 
+one thing they said was
+
+ > “The register button should take you to a separate page with a form on it, the form shouldn’t be on the same page” 
+
+They also said
+
+ > “The 'see more' button should be on teh left of the text as it might be better as you read left to right” 
+
+ 
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+From this feedback, I improved the flow diagram to include these suggestions
 
-*IMPROVED FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+ - I added the form onto a separate page
+
+ - I updated the see more button to be on the left of the text.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="350" height="450" src=https://www.figma.com/proto/tBsYkE4qc6i5L7hpU1Zt97/register-flow-v2?node-id=0-1&t=FQmPMMEXUKwYsxWB-1 allowfullscreen></iframe>
 
 
 ---
@@ -46,7 +60,7 @@ The next stage of prototyping was to develop the layout for each screen of the U
 
 This Figma demo shows the initial layout design for the UI:
 
-*FIGMA PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="350" height="450" src=https://www.figma.com/proto/xlsqzs1iacjcFQuFXL9fvt/register-design-v1?node-id=0-1&t=FQmPMMEXUKwYsxWB-1 allowfullscreen></iframe>
 
 ### Testing
 
