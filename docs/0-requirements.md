@@ -75,16 +75,15 @@ Replace this text with an explanation of what you will need to consider moving f
 
 ## Privacy
 
-Replace this text with a clear explanation of what the implication means.
+The privacy implications of a website relate to protecting the privacy of end-users and their data.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+I am going to be collecting emails and names from people, so I must make the website secure, so I don't leak their personal information 
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
-
+I will make sure that you can only access the admin page with a secure password, so that the emails and names will be secure.
 
 
 ## Intellectual property
@@ -93,23 +92,23 @@ The intellectual property (IP) implications of a website relates to not infringi
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+my website will include images and color schemes from the main church website, and they may be intellectual property which may get me in trouble if i use them without permission. This will be important as I don't want my website to be illegal as then the users might not use my site.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+ I will talk to the people who own the images to get consent to use them, so I won't be breaking copyright laws. 
 
 
-## NAME OF IMPLICATION 6
+## End-User
 
-Replace this text with a clear explanation of what the implication means.
+The end-user implications of a website are connected to the specific needs of the end-user(s).
 
 ### Relevance to the System
 
-my website will include images and color schemes from the main church website, and they may be intellectual property which may get me in trouble if i use them without permission.
+my project will need to meet the requirements of my end users because they are the ones who will be using my web app. If I neglect the requirements of my end users, they will probably find my web app hard to use, and stop using it altogether. 
 
 ### Impact / Considerations
 
-I will talk to the people who own the images to get consent to use them, so I won't be breaking copyright laws.
+ddff
 
 

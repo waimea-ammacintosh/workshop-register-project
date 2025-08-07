@@ -60,17 +60,26 @@ The next stage of prototyping was to develop the layout for each screen of the U
 
 This Figma demo shows the initial layout design for the UI:
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="350" height="450" src=https://www.figma.com/proto/xlsqzs1iacjcFQuFXL9fvt/register-design-v1?node-id=0-1&t=FQmPMMEXUKwYsxWB-1 allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="350" height="450" src=https://www.figma.com/proto/BLT2CqOHnbI7Y3M45DoA0g/register-design-v1?t=ZPWO7OttAuVBCLD4-1 allowfullscreen></iframe>
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+When I showed this to my user, they thought that the design needed some improvements.
+Some things that they suggested were:
+
+> “The title/image should be centered and the admin should be smaller.”
+
+> “The home buttons should be on the top right” 
+
+> “Register buttons should be centered” 
+
+> “The home should be an icon instead of a word” 
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I took this feedback that they gave me, and centered the title/header bar, and made the admin button smaller, I moved all the "Home" buttons, and moved them all to the top right corner of the screen and replaced the old rectangular button with a house Icon instead of the word "home". I also made all the register buttons in the center of the page, not just the one on the actual form page.
 
-*FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="350" height="450" src=https://www.figma.com/proto/CTx0x1GlQHbeAfUbJ0kK1f/register-design-v2?node-id=1-2&t=BYTbVz3aboOKwBF0-1 allowfullscreen></iframe>
 
 
 ---
@@ -81,7 +90,7 @@ Having established the layout of the UI screens, the prototype was refined visua
 
 This Figma demo shows the UI with refinements applied:
 
-*FIGMA REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+*FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
 
 ### Testing
 
