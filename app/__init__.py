@@ -29,16 +29,23 @@ init_datetime(app)  # Handle UTC dates in timestamps
 # Home page route
 #-----------------------------------------------------------
 @app.get("/")
-def index():
-    return render_template("pages/home.jinja")
+def show_all_workshops():
+    with connect_db() as client:
+        # Get all the things from the DB
+        sql = "SELECT id, name, date FROM workshops ORDER BY name ASC"
+        result = client.execute(sql)
+        workshops = result.rows
+
+        # And show them on the page
+        return render_template("pages/home.jinja", workshops=workshops)
 
 
 #-----------------------------------------------------------
-# About page route
+# Admin page route
 #-----------------------------------------------------------
-@app.get("/about/")
+@app.get("/admin/")
 def about():
-    return render_template("pages/about.jinja")
+    return render_template("pages/admin.jinja")
 
 
 #-----------------------------------------------------------
@@ -60,19 +67,19 @@ def show_all_things():
 #-----------------------------------------------------------
 # Thing page route - Show details of a single thing
 #-----------------------------------------------------------
-@app.get("/thing/<int:id>")
-def show_one_thing(id):
+@app.get("/workshop/<int:id>")
+def show_one_workshop(id):
     with connect_db() as client:
         # Get the thing details from the DB
-        sql = "SELECT id, name, price FROM things WHERE id=?"
+        sql = "SELECT id, name, person, date FROM workshops WHERE id=?"
         params = [id]
         result = client.execute(sql, params)
 
         # Did we get a result?
         if result.rows:
             # yes, so show it on the page
-            thing = result.rows[0]
-            return render_template("pages/thing.jinja", thing=thing)
+            workshop = result.rows[0]
+            return render_template("pages/workshop.jinja", workshop=workshop)
 
         else:
             # No, so show error
@@ -82,24 +89,33 @@ def show_one_thing(id):
 #-----------------------------------------------------------
 # Route for adding a thing, using data posted from a form
 #-----------------------------------------------------------
-@app.post("/add")
-def add_a_thing():
+@app.post("/register")
+def add_a_thing(id):
     # Get the data from the form
     name  = request.form.get("name")
-    price = request.form.get("price")
+    phone = request.form.get("phone")
+    email = request.form.get("email")
+    
 
     # Sanitise the text inputs
     name = html.escape(name)
 
     with connect_db() as client:
         # Add the thing to the DB
-        sql = "INSERT INTO things (name, price) VALUES (?, ?)"
-        params = [name, price]
+        sql = "INSERT INTO people (name, phone, email, workshop_id) VALUES (?, ?, ?, ?)"
+        params = [name, phone, email, id]
         client.execute(sql, params)
 
+        # Get the name of the workshop for the flash
+        sql2 = "SELECT name FROM workshops WHERE id=?"
+        params2 = [id]
+        result = client.execute(sql2, params2)
+
+        workshop = result.name
+
         # Go back to the home page
-        flash(f"Thing '{name}' added", "success")
-        return redirect("/things")
+        flash(f"Registered for {workshop} workshop")
+        return redirect("/workshop")
 
 
 #-----------------------------------------------------------
