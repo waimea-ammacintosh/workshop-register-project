@@ -11,7 +11,7 @@
 
 {% block title %}
 
-    Flask Demo - About Flask and Jinja
+    Workshop website - Admin Page
 
 {% endblock %}
 
@@ -19,30 +19,18 @@
 {% block content %}
 
     <article>
-
-        <h3>Add a New Thing...</h3>
-
-        <form action="/add" method="POST">
-
-            <input
-                type="text"
-                name="name"
-                placeholder="Name of new thing"
-                required
-            >
-
-            <input
-                type="number"
-                name="price"
-                min="0"
-                placeholder="Price in dollars"
-                required
-            >
-
-            <button>Add the Thing</button>
-
-        </form>
-
+        <span>
+            <h1>Name of Workshop</h1>
+        </span>
+        <span>
+            <h1>Name of Atendee</h1>
+        </span>
+        <span>
+            <h1>Phone Number of Attendee</h1>
+        </span>
+        <span>
+            <h1>Email of Atendee</h1>
+        </span>
     </article>
 
 {% endblock %}
