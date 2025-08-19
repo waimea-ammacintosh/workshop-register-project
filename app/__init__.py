@@ -32,8 +32,9 @@ init_datetime(app)  # Handle UTC dates in timestamps
 def show_all_workshops():
     with connect_db() as client:
         # Get all the things from the DB
-        sql = "SELECT id, name, date FROM workshops ORDER BY name ASC"
-        result = client.execute(sql)
+        sql = "SELECT id, name, date FROM workshop ORDER BY name ASC"
+        params=[]
+        result = client.execute(sql, params)
         workshops = result.rows
 
         # And show them on the page
@@ -44,7 +45,22 @@ def show_all_workshops():
 # Admin page route
 #-----------------------------------------------------------
 @app.get("/admin/")
-def about():
+def admin():
+    with connect_db() as client:
+        # Get all the things from the DB
+        sql = """SELECT
+                    workshop.id AS id
+                    workshop.name AS workshop_name
+                    people.name AS person_name
+                    people.phone AS phone
+                    people.email AS email
+
+                FROM
+                    people
+                JOIN ON people.workshop_id = workshop.id
+                ORDER BY id ASC
+                    """
+
     return render_template("pages/admin.jinja")
 
 
@@ -56,8 +72,7 @@ def show_all_things():
     with connect_db() as client:
         # Get all the things from the DB
         sql = "SELECT id, name FROM things ORDER BY name ASC"
-        params = []
-        result = client.execute(sql, params)
+        result = client.execute(sql)
         things = result.rows
 
         # And show them on the page
@@ -65,13 +80,13 @@ def show_all_things():
 
 
 #-----------------------------------------------------------
-# Thing page route - Show details of a single thing
+# Workshop page route - Show details of a single workshop
 #-----------------------------------------------------------
 @app.get("/workshop/<int:id>")
 def show_one_workshop(id):
     with connect_db() as client:
         # Get the thing details from the DB
-        sql = "SELECT id, name, person, date FROM workshops WHERE id=?"
+        sql = "SELECT id, name, person, date, place FROM workshop WHERE id=?"
         params = [id]
         result = client.execute(sql, params)
 
@@ -87,9 +102,17 @@ def show_one_workshop(id):
 
 
 #-----------------------------------------------------------
-# Route for adding a thing, using data posted from a form
+# Register page route
 #-----------------------------------------------------------
-@app.post("/register")
+@app.get("/register/<int:id>")
+def show_register(id):
+    return render_template("pages/register.jinja", id=id)
+
+
+#-----------------------------------------------------------
+# Route for registering a person, using data posted from a form
+#-----------------------------------------------------------
+@app.post("/register/<int:id>")
 def add_a_thing(id):
     # Get the data from the form
     name  = request.form.get("name")
@@ -107,15 +130,15 @@ def add_a_thing(id):
         client.execute(sql, params)
 
         # Get the name of the workshop for the flash
-        sql2 = "SELECT name FROM workshops WHERE id=?"
+        sql2 = "SELECT name FROM workshop WHERE id=?"
         params2 = [id]
         result = client.execute(sql2, params2)
 
-        workshop = result.name
+        workshop = result.rows[0]
 
         # Go back to the home page
         flash(f"Registered for {workshop} workshop")
-        return redirect("/workshop")
+        return redirect(f"/workshop/{id}")
 
 
 #-----------------------------------------------------------

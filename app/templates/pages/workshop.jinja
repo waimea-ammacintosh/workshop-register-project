@@ -26,16 +26,16 @@
             <h3>{{ workshop.name }}</h3>
         </header>
 
-        <p>Run By: <strong>${{ workshop.person }}</strong></p>
+        <p>Run By: <strong>{{ workshop.person }}</strong></p>
 
-        <p>Place: <strong>${{ workshop.place }}</strong></p>
+        <p>Place: <strong>{{ workshop.place }}</strong></p>
 
-        <p>date and time: <strong>${{ workshop.date }}</strong></p>
+        <p>Date and Time: <strong>{{ workshop.date }}</strong></p>
 
     </article>
 
     <span>
-        <a role="button" href="/thing/form/">Go to form!</a>
+        <a role="button" href="/register/{{ workshop.id }}">Go to form!</a>
     </span>
 
 

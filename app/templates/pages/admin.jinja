@@ -18,19 +18,39 @@
 
 {% block content %}
 
+    <article id="bar">
+        <span>
+            <h3>Name of Workshop</h3>
+        </span>
+        <span>
+            <h3>Name of Atendee</h3>
+        </span>
+        <span>
+            <h3>Phone Number of Attendee</h3>
+        </span>
+        <span>
+            <h3>Email of Atendee</h3>
+        </span>
+    </article>
     <article>
-        <span>
-            <h1>Name of Workshop</h1>
-        </span>
-        <span>
-            <h1>Name of Atendee</h1>
-        </span>
-        <span>
-            <h1>Phone Number of Attendee</h1>
-        </span>
-        <span>
-            <h1>Email of Atendee</h1>
-        </span>
+        {% for register in registers %}
+            <ul>
+                <li>
+                    <span>
+                        {{ workshop.name }}
+                    </span>
+                    <span>
+                        {{ person.name }}
+                    </span>
+                    <span>
+                        {{ person.phone }}
+                    </span>
+                    <span>
+                        {{ person.email }}
+                    </span>
+                </li>
+            </ul>
+        {% endfor %}
     </article>
 
 {% endblock %}
