@@ -49,19 +49,22 @@ def admin():
     with connect_db() as client:
         # Get all the things from the DB
         sql = """SELECT
-                    workshop.id AS id
-                    workshop.name AS workshop_name
-                    people.name AS person_name
-                    people.phone AS phone
-                    people.email AS email
+                    workshop.id AS id,
+                    workshop.name AS w_name,
+                    "people".name AS p_name,
+                    "people".phone AS phone,
+                    "people".email AS email
 
                 FROM
-                    people
-                JOIN ON people.workshop_id = workshop.id
+                    "people" AS people
+                INNER JOIN workshop ON "people".workshop_id = workshop.id
                 ORDER BY id ASC
                     """
+        params=[]
+        result = client.execute(sql, params)
+        workshop = result.rows
 
-    return render_template("pages/admin.jinja")
+    return render_template("pages/admin.jinja", registers=workshop)
 
 
 #-----------------------------------------------------------

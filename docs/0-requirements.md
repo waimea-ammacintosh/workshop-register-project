@@ -41,7 +41,7 @@ The functionality of a website relates to how well it works for the end-user, in
 
 ### Impact / Considerations
 
- I will make sure that my website is fully functional by regularly testing all aspects of the website periodically throughout development with all sorts of data, including invalid inputs.  
+ I will make sure that my website is fully functional by regularly testing all aspects of the website periodically throughout development with all sorts of data, including invalid inputs. This will help me to make sure that the web app will be fully functional all the time, and the users will be happy with the system.  
 
 
 
@@ -51,52 +51,52 @@ The usability implications of a website relates to how easy it is to use for the
 
 ### Relevance to the System
 
- there are many older people who will be using this website, so if it is not very usable and simple, they may feel overwhelmed and not be able to use the site.
+ there are many older people who will be using this website. This means if it is not very usable and simple, they may feel overwhelmed and not be able to use the site.
 
 ### Impact / Considerations
 
-I will make sure that I make the website simple to use and it should not have too many pages to go deep into, where they may find it difficult to get back. I will also make sure that I apply Nielsen's 10 usability Heuristics.
+I will make sure that I make the website simple to use and it should not have too many pages to go deep into, where they may find it difficult to get back. I will also try to make all the interactions in the website easy to use, by asking some people who are not as good with tech to use my website to see if it is simple enough to use. I will also make sure that I apply Nielsen's 10 usability Heuristics.
 
 
 
 ## Aesthetics
 
-Replace this text with a clear explanation of what the implication means.
+The aesthetic implications of a website relates to how it looks in terms of design.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+This implication is relevant to my system as it needs to look good, or else the users may find it difficult to use. This would lead to them potentially not using my web app.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will make sure that I choose a colour scheme that looks nice, and is not too bright or clashing, and I will make sure that I will adhere to common design principals in respects to layout and UI design.
 
 
 
-## Privacy
+## Privacy 
 
 The privacy implications of a website relate to protecting the privacy of end-users and their data.
 
 ### Relevance to the System
 
-I am going to be collecting emails and names from people, so I must make the website secure, so I don't leak their personal information 
+I am going to be collecting emails and names from people, so I must make the website secure, so I don't leak their personal information. This could lead to people being unhappy with me and they would stop using my web app. 
 
 ### Impact / Considerations
 
-I will make sure that you can only access the admin page with a secure password, so that the emails and names will be secure.
+I will make sure that you can only access the admin page with a secure password, so that the emails and names will be secure. This means that only people who know the password will be able to see the people's information, and it will be a secure site.
 
 
-## Intellectual property
+## Legal
 
-The intellectual property (IP) implications of a website relates to not infringing on the IP of others, in terms of copyright, trademarks, patents, etc..
+The legal implications of a website involves ensuring it conforms to all relevant NZ laws.
 
 ### Relevance to the System
 
-my website will include images and color schemes from the main church website, and they may be intellectual property which may get me in trouble if i use them without permission. This will be important as I don't want my website to be illegal as then the users might not use my site.
+my web app will be collecting personal data such as names, emails, and phone numbers from people, so I must make sure that the way I am doing so is lawful and adheres to the relevant New Zealand laws of the Privacy Act 2020.
 
 ### Impact / Considerations
 
- I will talk to the people who own the images to get consent to use them, so I won't be breaking copyright laws. 
+ I will make sure that my web app follows all the principals of the Privacy Act 2020. This includes things such as making sure I only collect relevant data, and making sure I inform the users in some way about what data is being collected, and why. 
 
 
 ## End-User
@@ -109,6 +109,6 @@ my project will need to meet the requirements of my end users because they are t
 
 ### Impact / Considerations
 
-ddff
+Throughout the project, I will regularly check in with my end-user with project updates and ask them how they think things should be, and take into consideration their ideas and needs for the project. This means that I will have a solid project that takes into consideration the requirements of the end user.
 
 

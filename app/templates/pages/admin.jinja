@@ -32,26 +32,28 @@
             <h3>Email of Atendee</h3>
         </span>
     </article>
+
     <article>
         {% for register in registers %}
             <ul>
                 <li>
                     <span>
-                        {{ workshop.name }}
+                        {{ register.w_name }}
                     </span>
                     <span>
-                        {{ person.name }}
+                        {{ register.p_name }}
                     </span>
                     <span>
-                        {{ person.phone }}
+                        {{ register.phone }}
                     </span>
                     <span>
-                        {{ person.email }}
+                        {{ register.email }}
                     </span>
                 </li>
             </ul>
         {% endfor %}
     </article>
+    <a href="/" role="button">Home</a>
 
 {% endblock %}
 
