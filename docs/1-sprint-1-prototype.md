@@ -88,24 +88,29 @@ I took this feedback that they gave me, and centered the title/header bar, and m
 
 Having established the layout of the UI screens, the prototype was refined visually, in terms of colour, fonts, etc.
 
-This Figma demo shows the UI with refinements applied:
+This Figma demo shows the UI with refinements applied, using the colour scheme below: 
 
-*FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="350" height="450" src=https://www.figma.com/proto/QLhkgEYs9dDDCx5qcqgs12/register-design-v4?t=xWohseJpAdvAy6AY-1 allowfullscreen></iframe> 
 
-### Testing
-
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-*FIGMA IMPROVED REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+![dark mode colour scheme](screenshots/darkcolours.png) 
 
 
----
+### Testing 
 
-## Sprint Review
+I showed this design to my user, and they had a few comments about the design 
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+> "I think that a light mode would be better because the colours in the dark mode don't look right." 
 
+### Changes / Improvements 
+
+I made a light mode option with different colors and black text, which is easier to see than the white text in dark mode using this colour scheme: 
+
+![light mode colour scheme](screenshots/lightcolours.png) 
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="350" height="450" src=https://www.figma.com/proto/rJnuf8gaOJ2Xx5Rfgu8cpP/register-design-v3?t=xWohseJpAdvAy6AY-1 allowfullscreen></iframe> 
+
+--- 
+
+## Sprint Review 
+
+The sprint was an overall success, as it allowed me to form an idea of what the web app should look like and how it should feel to use. It moved the project forwards as it allowed me and my user to discuss and refine ideas such as layout, colour schemes and UX. A key success point was when the user and I found a colour scheme that looked appealing, but also fit the requirements of the website. Something that didn't go well was when I made the dark mode version of the website, and it was a bad combination of colours. However, this was an easy fix, as I easily made a light mode option with better colours that looked more appealing and smooth. Overall I think this sprint was a success, as I was able to easily communicate with my end user to work out a clear design for my Web App. 

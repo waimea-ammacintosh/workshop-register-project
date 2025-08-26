@@ -16,32 +16,48 @@
 
 {% block content %}
 
+    <a role="button" href="/admin">back</a>
+
     <article>
 
-        <form action="/register" method="POST">
+        <form action="/workshop" method="POST">
 
             <input
                 type="text"
                 name="name"
-                placeholder="Enter Your Name"
-                required
-            >
-
-            <input
-                type="number"
-                name="phone"
-                placeholder="Enter Your Phone number"
+                placeholder="Enter Workshop Name"
                 required
             >
 
             <input
                 type="text"
-                name="email"
-                placeholder="Enter Your Email"
+                name="person"
+                placeholder="Enter Person Running Workshop"
+                required
+            >
+
+            <input
+                type="text"
+                name="date"
+                placeholder="Enter Date of Workshop (e.g. 4th August)"
+                required
+            >
+
+            <input
+                type="text"
+                name="place"
+                placeholder="Enter Place of Workshop"
+                required
+            >
+
+            <input
+                type="text"
+                name="time"
+                placeholder="Enter Time of Workshop (e.g. 5pm-7pm)"
                 required
             >           
 
-            <button>Add the Thing</button>
+            <button>Add the Workshop</button>
 
         </form>
 

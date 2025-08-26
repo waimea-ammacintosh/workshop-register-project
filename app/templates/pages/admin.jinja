@@ -18,20 +18,23 @@
 
 {% block content %}
 
-    <article id="bar">
-        <span>
-            <h3>Name of Workshop</h3>
-        </span>
-        <span>
-            <h3>Name of Atendee</h3>
-        </span>
-        <span>
-            <h3>Phone Number of Attendee</h3>
-        </span>
-        <span>
-            <h3>Email of Atendee</h3>
-        </span>
-    </article>
+    <div id="top">
+        <article id="bar">
+            <span>
+                <h3>Name of Workshop</h3>
+            </span>
+            <span>
+                <h3>Name of Atendee</h3>
+            </span>
+            <span>
+                <h3>Phone Number of Attendee</h3>
+            </span>
+            <span>
+                <h3>Email of Atendee</h3>
+            </span>
+        </article>
+        <a href="/new" role="button">New Workshop</a>
+    </div>
 
     <article>
         {% for register in registers %}

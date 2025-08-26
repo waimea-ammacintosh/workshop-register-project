@@ -1,0 +1,46 @@
+{#=====================================================
+  Home page
+  - Hero style greeting banner
+  - List of things passed in as 'things' array
+  - Form for adding a new thing
+=====================================================#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    Workshop website - Home
+
+{% endblock %}
+
+
+{% block content %}
+
+    <head>
+        <a href="/admin" role="button">back</a>
+    </head>
+
+    <article>
+
+        <ul>
+            {% for workshop in workshops %}
+
+                <li>
+                    <a href="/delete/{{ workshop.id }}">
+                        {{ workshop.name }} workshop
+                    </a>
+                </li>
+
+            {% else %}
+
+                <p>None!</p>
+
+            {% endfor %}
+        </ul>
+
+    </article>
+
+
+{% endblock %}
+

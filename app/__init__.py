@@ -67,20 +67,6 @@ def admin():
     return render_template("pages/admin.jinja", registers=workshop)
 
 
-#-----------------------------------------------------------
-# Things page route - Show all the things, and new thing form
-#-----------------------------------------------------------
-@app.get("/things/")
-def show_all_things():
-    with connect_db() as client:
-        # Get all the things from the DB
-        sql = "SELECT id, name FROM things ORDER BY name ASC"
-        result = client.execute(sql)
-        things = result.rows
-
-        # And show them on the page
-        return render_template("pages/things.jinja", things=things)
-
 
 #-----------------------------------------------------------
 # Workshop page route - Show details of a single workshop
@@ -89,7 +75,7 @@ def show_all_things():
 def show_one_workshop(id):
     with connect_db() as client:
         # Get the thing details from the DB
-        sql = "SELECT id, name, person, date, place FROM workshop WHERE id=?"
+        sql = "SELECT * FROM workshop WHERE id=?"
         params = [id]
         result = client.execute(sql, params)
 
@@ -116,7 +102,7 @@ def show_register(id):
 # Route for registering a person, using data posted from a form
 #-----------------------------------------------------------
 @app.post("/register/<int:id>")
-def add_a_thing(id):
+def register_a_person(id):
     # Get the data from the form
     name  = request.form.get("name")
     phone = request.form.get("phone")
@@ -127,7 +113,7 @@ def add_a_thing(id):
     name = html.escape(name)
 
     with connect_db() as client:
-        # Add the thing to the DB
+        # Add the register to the DB
         sql = "INSERT INTO people (name, phone, email, workshop_id) VALUES (?, ?, ?, ?)"
         params = [name, phone, email, id]
         client.execute(sql, params)
@@ -159,4 +145,45 @@ def delete_a_thing(id):
         flash("Thing deleted", "success")
         return redirect("/things")
 
+#-----------------------------------------------------------
+# New Workshop page route
+#-----------------------------------------------------------
+@app.get("/new")
+def show_new_workshop_form():
+    return render_template("pages/new.jinja")
+
+
+#-----------------------------------------------------------
+# Route for adding a new workshop, using data posted from a form
+#-----------------------------------------------------------
+@app.post("/workshop")
+def add_a_workshop():
+    # Get the data from the form
+    name  = request.form.get("name")
+    person = request.form.get("person")
+    date = request.form.get("date")
+    place = request.form.get("place")
+    time = request.form.get("time")
+
+    
+
+    # Sanitise the text inputs
+    name = html.escape(name)
+
+    with connect_db() as client:
+        # Add the workshop to the DB
+        sql = "INSERT INTO workshop (name, person, date, place, time) VALUES (?, ?, ?, ?, ?)"
+        params = [name, person, date, place, time]
+        client.execute(sql, params)
+
+        # Get the name of the workshop for the flash
+        sql2 = "SELECT name FROM workshop ORDER BY id DESC LIMIT 1"
+        params2 = []
+        result = client.execute(sql2, params2)
+
+        workshop_name = result.rows[0]
+
+        # Go back to the home page
+        flash(f"Successfully added {workshop_name} workshop")
+        return redirect("/admin")
 
