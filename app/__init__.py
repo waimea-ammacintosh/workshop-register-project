@@ -13,7 +13,8 @@ from app.helpers.db      import connect_db
 from app.helpers.errors  import init_error, not_found_error
 from app.helpers.logging import init_logging
 from app.helpers.time    import init_datetime, utc_timestamp, utc_timestamp_now
-
+from dotenv import load_dotenv
+from os import getenv
 
 # Create the app
 app = Flask(__name__)
@@ -24,6 +25,8 @@ init_logging(app)   # Log requests
 init_error(app)     # Handle errors and exceptions
 init_datetime(app)  # Handle UTC dates in timestamps
 
+ADMIN_P = getenv("ADMIN_P")
+ADMIN_U = getenv("ADMIN_U")
 
 #-----------------------------------------------------------
 # Home page route
@@ -39,6 +42,34 @@ def show_all_workshops():
 
         # And show them on the page
         return render_template("pages/home.jinja", workshops=workshops)
+
+#-----------------------------------------------------------
+# Login page route
+#-----------------------------------------------------------
+@app.get("/log-in/")
+def show_login():
+    return render_template("pages/log-in.jinja")
+
+
+#-----------------------------------------------------------
+# Route for signing into admin, checks username and password
+#-----------------------------------------------------------
+@app.post("/log-in/")
+def login():
+    # Get the data from the form
+    username  = request.form.get("username")
+    password = request.form.get("password")
+
+        
+    if password == ADMIN_P and username == ADMIN_U:
+        # Go to admin page
+        flash("Log in successful")
+        return redirect("/admin/")
+    
+    else:
+        # Ask to try again
+        flash("Log in unsuccessful, please try again")
+        return redirect("/log-in/")
 
 
 #-----------------------------------------------------------

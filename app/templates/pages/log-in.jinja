@@ -1,0 +1,43 @@
+{#=====================================================
+  admin login page
+  - log-in form for the admin
+=====================================================#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %}
+
+    Workshop website - Register
+
+{% endblock %}
+
+
+{% block content %}
+
+    <article>
+
+        <form action="/log-in/" method="POST">
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter Username"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter Password"
+                required
+            >       
+
+            <button>Log In</button>
+
+        </form>
+        <a href="/" role="button">Home</a>
+    </article>
+
+{% endblock %}
+
