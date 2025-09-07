@@ -12,7 +12,7 @@ Develop a prototype that simulates the key functionality of the system, then tes
 
 ## Initial Database Design
 
-This is the initial design of my database, so 
+This is the initial design of my database. It includes two tables, one that takes care of the workshops, and one that takes care of the people, and the two are connected through a foreign key. The workshop table has the name of the workshop, the date, and person who is running it. It also includes a column that counts how many people are attending. The people table has columns that is the first and last name of the person, the email of the attendee, and a foreign key linked to which workshop they are attending.
 
 ![SCREENSHOT OF DB DESIGN](screenshots/db1.png)
 

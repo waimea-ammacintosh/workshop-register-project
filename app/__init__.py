@@ -162,19 +162,39 @@ def register_a_person(id):
 
 
 #-----------------------------------------------------------
-# Route for deleting a thing, Id given in the route
+# delete page route
+#-----------------------------------------------------------
+@app.get("/delete/")
+def show_delete():
+    with connect_db() as client:
+        # Get all the things from the DB
+        sql = "SELECT id, name FROM workshop ORDER BY name ASC"
+        params=[]
+        result = client.execute(sql, params)
+        workshops = result.rows
+    return render_template("pages/delete.jinja", workshops=workshops)
+
+
+#-----------------------------------------------------------
+# Route for deleting a workshop, Id given in the route
 #-----------------------------------------------------------
 @app.get("/delete/<int:id>")
 def delete_a_thing(id):
     with connect_db() as client:
-        # Delete the thing from the DB
-        sql = "DELETE FROM things WHERE id=?"
+        # Get name for flash
+        sql = "SELECT name FROM workshop WHERE id=?"
         params = [id]
-        client.execute(sql, params)
+        result = client.execute(sql, params)
+        workshop = result.rows[0]
+
+        # Delete the thing from the DB
+        sql2 = "DELETE FROM workshop WHERE id=?"
+        params2 = [id]
+        client.execute(sql2, params2)
 
         # Go back to the home page
-        flash("Thing deleted", "success")
-        return redirect("/things")
+        flash(f"{workshop} workshop deleted", "success")
+        return redirect("/delete")
 
 #-----------------------------------------------------------
 # New Workshop page route
@@ -216,5 +236,5 @@ def add_a_workshop():
 
         # Go back to the home page
         flash(f"Successfully added {workshop_name} workshop")
-        return redirect("/admin")
+        return redirect("/admin/")
 
