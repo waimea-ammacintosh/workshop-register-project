@@ -19,7 +19,7 @@
         <a role="button" href="/">home</a>
     </span>
 
-
+    {# shows all the details of the workshop #}
     <article>
 
         <header>
@@ -30,7 +30,7 @@
 
         <p>Place: <strong>{{ workshop.place }}</strong></p>
 
-        <p>Date and Time: <strong>{{ workshop.date }}, {{ workshop.time }}</strong></p>
+        <p>Date and Time: <strong>{{ workshop.date | nicedate }}, {{ workshop.start_time | nicetime }}-{{ workshop.end_time | nicetime }}</strong></p>
 
     </article>
 

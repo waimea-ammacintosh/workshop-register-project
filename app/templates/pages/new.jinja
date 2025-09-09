@@ -18,7 +18,7 @@
     <a role="button" href="/admin">back</a>
 
     <article>
-
+        {# form to add the new workshop #}
         <form action="/workshop" method="POST">
 
             <input
@@ -37,25 +37,34 @@
 
             <input
                 type="text"
-                name="date"
-                placeholder="Enter Date of Workshop (e.g. 4th August)"
-                required
-            >
-
-            <input
-                type="text"
                 name="place"
                 placeholder="Enter Place of Workshop"
                 required
             >
 
             <input
-                type="text"
-                name="time"
-                placeholder="Enter Time of Workshop (e.g. 5pm-7pm)"
+                type="date"
+                name="date"
+                placeholder="Enter Date of Workshop (e.g. 4th August)"
                 required
-            >           
+            >
 
+            <fieldset>
+                <input
+                    type="time"
+                    name="start_time"
+                    placeholder="Enter Time of Workshop (e.g. 5pm-7pm)"
+                    required
+                >           
+
+                <input
+                    type="time"
+                    name="end_time"
+                    placeholder="Enter Time of Workshop (e.g. 5pm-7pm)"
+                    required
+                >           
+            </fieldset>
+            
             <button>Add the Workshop</button>
 
         </form>

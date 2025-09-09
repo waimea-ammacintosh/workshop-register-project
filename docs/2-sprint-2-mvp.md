@@ -21,7 +21,7 @@ Replace this text with notes regarding the DB schema.
 
 The key functionality of the web app was implemented:
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE SYSTEM HERE**
+![website preview](screenshots/preview.gif)
 
 
 ---

@@ -15,47 +15,53 @@
 
 
 {% block content %}
-
+    {# shows all the registers in a table #}
     <div id="top">
-        <article id="bar">
-            <span>
-                <h3>Name of Workshop</h3>
-            </span>
-            <span>
-                <h3>Name of Atendee</h3>
-            </span>
-            <span>
-                <h3>Phone Number of Attendee</h3>
-            </span>
-            <span>
-                <h3>Email of Atendee</h3>
-            </span>
+        <article>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name of Workshop</th>
+                        <th>Name of Atendee</th>
+                        <th>Phone Number of Attendee</th>
+                        <th>Email of Atendee</th>
+                    </tr>
+                </thead>
+
+                <tbody>                
+                    {% for register in registers %}
+                    <tr>
+                        <td>
+                            {{ register.w_name }}
+                        </td>
+                        <td>
+                            {{ register.p_name }}
+                        </td>
+                        <td>
+                            {{ register.phone }}
+                        </td>
+                        <td>
+                            {{ register.email }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </article>
         <a href="/new" role="button" id="new_w">New Workshop</a>
-    </div>
-
-    <article>
-        {% for register in registers %}
-            <ul>
-                <li>
-                    <span>
-                        {{ register.w_name }}
-                    </span>
-                    <span>
-                        {{ register.p_name }}
-                    </span>
-                    <span>
-                        {{ register.phone }}
-                    </span>
-                    <span>
-                        {{ register.email }}
-                    </span>
-                </li>
-            </ul>
+   </div> 
+    <article id="old">
+        <h2>Old Workshops:</h2>
+        {% for workshop in old %}
+        <ul>
+            <li>{{ workshop.name }}</li>
+        </ul>
         {% endfor %}
     </article>
+ 
     <a href="/" role="button">Home</a>
     <a href="/delete/" role="button">Delete Workshops</a>
+    <a href="/log-out/" role="button">Log out</a>
 
 {% endblock %}
 

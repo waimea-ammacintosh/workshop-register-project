@@ -16,18 +16,23 @@
 
 
 {% block content %}
-
+{# head section #}
     <head>
         <div id="title">
             <article>
                 <h1>Workshop Organiser 3000</h1>
             </article>
-            <a href="/log-in" role="button">admin</a>
+
+            {% if session["logged_in"] %}
+                <a href="/admin" role="button">Admin</a>
+            {% else %}
+                <a href="/log-in" role="button">Log In</a>
+            {% endif %}
         </div>
     </head>
 
     <article>
-
+        {# this loop that lists all workshops #}
         <ul>
             {% for workshop in workshops %}
 

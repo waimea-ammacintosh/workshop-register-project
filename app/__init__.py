@@ -5,15 +5,14 @@
 # BRIEF DESCRIPTION OF YOUR PROJECT HERE
 #===========================================================
 
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, flash, redirect, session
 import html
 
 from app.helpers.session import init_session
 from app.helpers.db      import connect_db
 from app.helpers.errors  import init_error, not_found_error
 from app.helpers.logging import init_logging
-from app.helpers.time    import init_datetime, utc_timestamp, utc_timestamp_now
-from dotenv import load_dotenv
+from app.helpers.dates   import init_datetime, utc_datetime_str, utc_date_str, utc_time_str
 from os import getenv
 
 # Create the app
@@ -25,6 +24,8 @@ init_logging(app)   # Log requests
 init_error(app)     # Handle errors and exceptions
 init_datetime(app)  # Handle UTC dates in timestamps
 
+
+# get the admin password and username form the env
 ADMIN_P = getenv("ADMIN_P")
 ADMIN_U = getenv("ADMIN_U")
 
@@ -62,6 +63,7 @@ def login():
 
         
     if password == ADMIN_P and username == ADMIN_U:
+        session["logged_in"] = True
         # Go to admin page
         flash("Log in successful")
         return redirect("/admin/")
@@ -70,6 +72,16 @@ def login():
         # Ask to try again
         flash("Log in unsuccessful, please try again")
         return redirect("/log-in/")
+
+
+#-----------------------------------------------------------
+# Route for logging out of admin, checks username and password
+#-----------------------------------------------------------
+@app.get("/log-out/")
+def logout():
+    session.clear()
+    flash("Logged out!")
+    return redirect("/")
 
 
 #-----------------------------------------------------------
@@ -82,20 +94,29 @@ def admin():
         sql = """SELECT
                     workshop.id AS id,
                     workshop.name AS w_name,
-                    "people".name AS p_name,
-                    "people".phone AS phone,
-                    "people".email AS email
+                    people.name AS p_name,
+                    people.phone AS phone,
+                    people.email AS email
 
                 FROM
                     "people" AS people
-                INNER JOIN workshop ON "people".workshop_id = workshop.id
+                FULL JOIN workshop ON people.workshop_id = workshop.id
+
+                WHERE workshop.date >= DATE('now')
+
                 ORDER BY id ASC
                     """
         params=[]
         result = client.execute(sql, params)
         workshop = result.rows
 
-    return render_template("pages/admin.jinja", registers=workshop)
+        sql2 = "SELECT name FROM workshop WHERE workshop.date < DATE('now')"
+        params2=[]
+        old_workshops = client.execute(sql2, params2)
+
+
+
+    return render_template("pages/admin.jinja", registers=workshop, old=old_workshops)
 
 
 
@@ -155,9 +176,10 @@ def register_a_person(id):
         result = client.execute(sql2, params2)
 
         workshop = result.rows[0]
+        cleaned_name = (''.join(workshop))
 
         # Go back to the home page
-        flash(f"Registered for {workshop} workshop")
+        flash(f"Registered for {cleaned_name} workshop")
         return redirect(f"/workshop/{id}")
 
 
@@ -186,6 +208,7 @@ def delete_a_thing(id):
         params = [id]
         result = client.execute(sql, params)
         workshop = result.rows[0]
+        cleaned_name = (''.join(workshop))
 
         # Delete the thing from the DB
         sql2 = "DELETE FROM workshop WHERE id=?"
@@ -193,7 +216,7 @@ def delete_a_thing(id):
         client.execute(sql2, params2)
 
         # Go back to the home page
-        flash(f"{workshop} workshop deleted", "success")
+        flash(f"{cleaned_name} workshop deleted", "success")
         return redirect("/delete")
 
 #-----------------------------------------------------------
@@ -214,7 +237,8 @@ def add_a_workshop():
     person = request.form.get("person")
     date = request.form.get("date")
     place = request.form.get("place")
-    time = request.form.get("time")
+    start_time = request.form.get("start_time")
+    end_time = request.form.get("end_time")
 
     
 
@@ -223,8 +247,8 @@ def add_a_workshop():
 
     with connect_db() as client:
         # Add the workshop to the DB
-        sql = "INSERT INTO workshop (name, person, date, place, time) VALUES (?, ?, ?, ?, ?)"
-        params = [name, person, date, place, time]
+        sql = "INSERT INTO workshop (name, person, date, place, start_time, end_time) VALUES (?, ?, ?, ?, ?, ?)"
+        params = [name, person, date, place, start_time, end_time]
         client.execute(sql, params)
 
         # Get the name of the workshop for the flash
@@ -233,8 +257,9 @@ def add_a_workshop():
         result = client.execute(sql2, params2)
 
         workshop_name = result.rows[0]
+        cleaned_name = (''.join(workshop_name))
 
         # Go back to the home page
-        flash(f"Successfully added {workshop_name} workshop")
+        flash(f"Successfully added {cleaned_name} workshop")
         return redirect("/admin/")
 
