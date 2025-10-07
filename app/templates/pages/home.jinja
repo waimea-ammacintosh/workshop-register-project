@@ -18,28 +18,32 @@
 {% block content %}
 {# head section #}
     <head>
-        <div id="title">
-            <article>
-                <h1>Workshop Organiser 3000</h1>
-            </article>
+        <article id="title">
+
+            <h1>Workshop Organiser 3000</h1>
 
             {% if session["logged_in"] %}
                 <a href="/admin" role="button">Admin</a>
             {% else %}
                 <a href="/log-in" role="button">Log In</a>
             {% endif %}
-        </div>
+        </article>
     </head>
 
-    <article>
+    <article id="main_list">
         {# this loop that lists all workshops #}
         <ul>
             {% for workshop in workshops %}
 
-                <li>
-                    <a href="/workshop/{{ workshop.id }}">
+                <li id="record">
+                    <div>
+                        <a href="/workshop/{{ workshop.id }}" role="button" id="link">
+                            see more
+                        </a>
+                    </div>
+                    <div id="name">
                         {{ workshop.name }} workshop
-                    </a>
+                    </div>
                 </li>
 
             {% else %}

@@ -12,7 +12,7 @@ Develop a bare-bones, working web application that provides the key functionalit
 
 Replace this text with notes regarding the DB schema.
 
-![SCREENSHOT OF DB SCHEMA](screenshots/example.png)
+![SCREENSHOT OF DB SCHEMA](screenshots/db3.png)
 
 
 ---
@@ -21,37 +21,37 @@ Replace this text with notes regarding the DB schema.
 
 The key functionality of the web app was implemented:
 
-![website preview](screenshots/preview.gif)
+![website preview](gifs/preview.gif)
 
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Workshop list on the main page
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+The list of available workshops for users to register for is a core part of the functionality of the web app. When my user and I tested the functionality of the list, I realized that the ones that had already been still showed up. To test this, we made an imaginary workshop and set the date to be in the past. When we went and checked the list on the home page, the workshop was still there.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Broken List](gifs/list-broken.gif)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+ To fix the problem, I made sure to add a sort in the query for the home page that meant that it would only show the ones that were in the future.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Fixed List](gifs/list-fixed.gif)
 
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Admin Login
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+The admin login is how the admin user logs in to the back-end of the website to see a list of the registrations, add and delete workshops and see past workshops. How I originally made the log-in was tedious as every time you left the back end, you needed to sign in again.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Broken login](gifs/login-broken.gif)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I added session data to allow the admin to stay logged in when they log in, and have to push a button to log out, and can access the back-end without having to log back in every time.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Fixed login](gifs/login-fixed.gif)
 
 
 ---

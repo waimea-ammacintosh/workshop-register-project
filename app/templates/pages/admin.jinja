@@ -22,9 +22,10 @@
                 <thead>
                     <tr>
                         <th>Name of Workshop</th>
-                        <th>Name of Atendee</th>
+                        <th>Name of Attendee</th>
+                        <th>Last Name of Attendee</th>
                         <th>Phone Number of Attendee</th>
-                        <th>Email of Atendee</th>
+                        <th>Email of Attendee</th>
                     </tr>
                 </thead>
 
@@ -35,7 +36,10 @@
                             {{ register.w_name }}
                         </td>
                         <td>
-                            {{ register.p_name }}
+                            {{ register.f_name }}
+                        </td>
+                        <td>
+                            {{ register.l_name }}
                         </td>
                         <td>
                             {{ register.phone }}

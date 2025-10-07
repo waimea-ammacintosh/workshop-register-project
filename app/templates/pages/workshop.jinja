@@ -23,14 +23,14 @@
     <article>
 
         <header>
-            <h3>{{ workshop.name }}</h3>
+            <h3>{{ workshop.name }} Workshop</h3>
         </header>
 
-        <p>Run By: <strong>{{ workshop.person }}</strong></p>
+        <p><strong>Run By:</strong> {{ workshop.person }}</p>
 
-        <p>Place: <strong>{{ workshop.place }}</strong></p>
+        <p><strong>Place:</strong> {{ workshop.place }}</p>
 
-        <p>Date and Time: <strong>{{ workshop.date | nicedate }}, {{ workshop.start_time | nicetime }}-{{ workshop.end_time | nicetime }}</strong></p>
+        <p><strong>Date and Time:</strong> {{ workshop.date | nicedate }}, {{ workshop.start_time | nicetime }}-{{ workshop.end_time | nicetime }}</p>
 
     </article>
 

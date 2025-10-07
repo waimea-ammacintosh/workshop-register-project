@@ -36,7 +36,7 @@ ADMIN_U = getenv("ADMIN_U")
 def show_all_workshops():
     with connect_db() as client:
         # Get all the things from the DB
-        sql = "SELECT id, name, date FROM workshop ORDER BY name ASC"
+        sql = "SELECT id, name, date FROM workshop WHERE date >= DATE('now') ORDER BY name ASC"
         params=[]
         result = client.execute(sql, params)
         workshops = result.rows
@@ -94,17 +94,18 @@ def admin():
         sql = """SELECT
                     workshop.id AS id,
                     workshop.name AS w_name,
-                    people.name AS p_name,
+                    people.name AS f_name,
+                    people.last_name AS l_name,
                     people.phone AS phone,
                     people.email AS email
 
                 FROM
-                    "people" AS people
+                    people AS people
                 FULL JOIN workshop ON people.workshop_id = workshop.id
 
                 WHERE workshop.date >= DATE('now')
 
-                ORDER BY id ASC
+                ORDER BY id, l_name ASC
                     """
         params=[]
         result = client.execute(sql, params)
@@ -156,7 +157,8 @@ def show_register(id):
 @app.post("/register/<int:id>")
 def register_a_person(id):
     # Get the data from the form
-    name  = request.form.get("name")
+    name  = request.form.get("f_name")
+    l_name = request.form.get("l_name")
     phone = request.form.get("phone")
     email = request.form.get("email")
     
@@ -166,8 +168,8 @@ def register_a_person(id):
 
     with connect_db() as client:
         # Add the register to the DB
-        sql = "INSERT INTO people (name, phone, email, workshop_id) VALUES (?, ?, ?, ?)"
-        params = [name, phone, email, id]
+        sql = "INSERT INTO people (name, last_name, phone, email, workshop_id) VALUES (?, ?, ?, ?, ?)"
+        params = [name, l_name, phone, email, id]
         client.execute(sql, params)
 
         # Get the name of the workshop for the flash
@@ -179,7 +181,7 @@ def register_a_person(id):
         cleaned_name = (''.join(workshop))
 
         # Go back to the home page
-        flash(f"Registered for {cleaned_name} workshop")
+        flash(f"You are Now Registered for {cleaned_name} workshop")
         return redirect(f"/workshop/{id}")
 
 
