@@ -19,51 +19,45 @@
         {# form to add the new workshop #}
         <form action="/workshop" method="POST">
 
-            <fieldset role="group">
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter Workshop Name"
+                required
+            >
+            <input
+                type="text"
+                name="person"
+                placeholder="Enter Person Running"
+                required
+            >
+            <input
+                type="text"
+                name="place"
+                placeholder="Enter Place of Workshop"
+                required
+            >
+            <input
+                type="date"
+                name="date"
+                placeholder="Enter Date of Workshop (e.g. 4th August)"
+                required
+            >
+            <fieldset>
                 <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter Workshop Name"
+                    type="time"
+                    name="start_time"
+                    placeholder="Enter Start Time of Workshop"
                     required
-                >
-
+                >           
                 <input
-                    type="text"
-                    name="person"
-                    placeholder="Enter Person Running"
+                    type="time"
+                    name="end_time"
+                    placeholder="Enter End Time of Workshop"
                     required
-                >
-
-                <input
-                    type="text"
-                    name="place"
-                    placeholder="Enter Place of Workshop"
-                    required
-                >
-
-                <input
-                    type="date"
-                    name="date"
-                    placeholder="Enter Date of Workshop (e.g. 4th August)"
-                    required
-                >
-
-                <fieldset>
-                    <input
-                        type="time"
-                        name="start_time"
-                        placeholder="Enter Start Time of Workshop"
-                        required
-                    >           
-
-                    <input
-                        type="time"
-                        name="end_time"
-                        placeholder="Enter End Time of Workshop"
-                        required
-                    >           
-                </fieldset>
+                >           
             </fieldset>
+
             
             <button>Add the Workshop</button>
 

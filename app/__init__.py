@@ -1,6 +1,6 @@
 #===========================================================
-# YOUR PROJECT TITLE HERE
-# YOUR NAME HERE
+# Workshop Register Project
+# Aaron Macintosh
 #-----------------------------------------------------------
 # BRIEF DESCRIPTION OF YOUR PROJECT HERE
 #===========================================================
