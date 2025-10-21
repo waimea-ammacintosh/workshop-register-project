@@ -89,35 +89,35 @@ Achievement standard [91892](as91892.pdf), Use advanced techniques to develop a 
 Use advanced techniques to develop a database means that, taking into account the problem / need and the end users:
 
 1. You must first define the purpose of your system and the end-users' needs:
-   - [ ] Define the **purpose of the system** that uses the database
-   - [ ] Describe the **needs of the end-users**
-   - [ ] Define the **key functionality** of the proposed system
+   - [x] Define the **purpose of the system** that uses the database
+   - [x] Describe the **needs of the end-users**
+   - [x] Define the **key functionality** of the proposed system
 
 
 2. You need to design the structure of the database:
-   - [ ] **Tables** - at least two that are linked by a relationship
-   - [ ] **Data Types** - a range of data types used
-   - [ ] **Key Fields** - primary keys for each table, foreign keys for relationships
-   - [ ] **Values** - auto-generation / default values as required
+   - [x] **Tables** - at least two that are linked by a relationship
+   - [x] **Data Types** - a range of data types used
+   - [x] **Key Fields** - primary keys for each table, foreign keys for relationships
+   - [x] **Values** - auto-generation / default values as required
 
 3. You should use appropriate tools and advanced techniques to organise and query the data:
-   - [ ] **Linking data in related tables** using queries or keys
-   - [ ] Writing **custom queries** to filter and/or sort data
-   - [ ] Using **logical, mathematical and/or wildcard operators** as needed
+   - [x] **Linking data in related tables** using queries or keys
+   - [x] Writing **custom queries** to filter and/or sort data
+   - [x] Using **logical, mathematical and/or wildcard operators** as needed
 
 4. You should use appropriate tools and advanced techniques to present the data:
-   - [ ] Customising **presentation** of the data (not just raw data values)
-   - [ ] Using **custom forms** to add user input to the database
-   - [ ] Setting **validation rules** for data entry
+   - [x] Customising **presentation** of the data (not just raw data values)
+   - [x] Using **custom forms** to add user input to the database
+   - [x] Setting **validation rules** for data entry
 
 5. You must apply appropriate data integrity and testing procedures:
    - [ ] Show that any **presented data is correct** (e.g. matches database values / calculations)
-   - [ ] Show that any input user data **updates the database as expected**
+   - [x] Show that any input user data **updates the database as expected**
 
 6. You need to explain relevant implications:
-   - [ ] Identify the **implications most relevant** to your project
-   - [ ] Explain **what the implications mean** and **why each is relevant** to your project
-   - [ ] Explain **how each implication will impact your specific project** (considerations / choices / designs)
+   - [x] Identify the **implications most relevant** to your project
+   - [x] Explain **what the implications mean** and **why each is relevant** to your project
+   - [x] Explain **how each implication will impact your specific project** (considerations / choices / designs)
 
 *Note: You must satisfy **all** of the criteria above to pass*
 

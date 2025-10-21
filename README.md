@@ -22,6 +22,7 @@ and keep track of people who sign up. People can also sign up to workshops in th
 ## Project Links
 
 - [GitHub repo for the project](https://github.com/waimea-ammacintosh/workshop-register-project)
+- [Project Documentation](https://waimea-ammacintosh.github.io/workshop-register-project/)
 - [Live web app](https://...)
 
 

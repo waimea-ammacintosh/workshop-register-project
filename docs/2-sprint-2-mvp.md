@@ -73,30 +73,27 @@ To fix this, I changed the code in the register form to make sure that it was in
 
 ## Testing Adding Workshops
 
-The adding workshop function is vital to the functionality of the workshop as it means that the admin can add workshops, and I tested it by trying to add a workshop and make sure that all the inputs work, and the workshop is added. While testing the form, It did not work, because I had updated the form adn database, but I had not updated the processing of the form to add it to the database. To fix this, I made sure to update the python processing code to make sure it matches the inputs and the database.
+The adding workshop function is vital to the functionality of the workshop as it means that the admin can add workshops, and I tested it by trying to add a workshop and make sure that all the inputs work, and the workshop is added. While testing the form, It did not work, because I had updated the form adn database, but I had not updated the processing of the form to add it to the database.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Broken adding workshops](gifs/new-broken.gif)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+To fix the problem, I made sure to update the python processing code to make sure it matches the inputs and the database. 
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Admin Data Records
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+The admin data records are an important part of the organizing process for the admin to make sure that they know all the records for the different workshops. 
+I checked side by side with the database to make sure that the data matched. The data matched the data in the database.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+Database Data: ![Database Data](screenshots/database-data.png)
 
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+Website Data: ![Website Data](screenshots/website-data.png)
 
 
 ---

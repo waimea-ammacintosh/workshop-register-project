@@ -26,15 +26,18 @@ The web app is fully implemented with a refined UI:
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing Admin Data Records
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+The admin data records are an important part of the organizing process for the admin to make sure that they know all the records for the different workshops. 
+I checked side by side with the database to make sure that the data matched. The data matched, but I found the format of the data tricky to read.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+Database Data: ![Database Data](screenshots/database-data.png)
+
+Website Data: ![Website Data](screenshots/website-data.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+In light of the data being hard to take in, I changed the layout of the admin page
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
 

@@ -18,39 +18,13 @@
     {# shows all the registers in a table #}
     <div id="top">
         <article>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name of Workshop</th>
-                        <th>Name of Attendee</th>
-                        <th>Last Name of Attendee</th>
-                        <th>Phone Number of Attendee</th>
-                        <th>Email of Attendee</th>
-                    </tr>
-                </thead>
-
-                <tbody>                
-                    {% for register in registers %}
-                    <tr>
-                        <td>
-                            {{ register.w_name }}
-                        </td>
-                        <td>
-                            {{ register.f_name }}
-                        </td>
-                        <td>
-                            {{ register.l_name }}
-                        </td>
-                        <td>
-                            {{ register.phone }}
-                        </td>
-                        <td>
-                            {{ register.email }}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <ul>
+                {% for workshop in workshops %}
+                    <li>
+                        <a href="/registers/{{ workshop. id }}" role="button">{{ workshop.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
         </article>
         <a href="/new" role="button" id="new_w">New Workshop</a>
    </div> 

@@ -85,10 +85,10 @@ def logout():
 
 
 #-----------------------------------------------------------
-# Admin page route
+# Individual workshop list of registrations page route
 #-----------------------------------------------------------
-@app.get("/admin/")
-def admin():
+@app.get("/registers/<int:id>")
+def workshop_registers(id):
     with connect_db() as client:
         # Get all the things from the DB
         sql = """SELECT
@@ -104,20 +104,41 @@ def admin():
                 FULL JOIN workshop ON people.workshop_id = workshop.id
 
                 WHERE workshop.date >= DATE('now')
+                WHERE id = ?
 
                 ORDER BY id, l_name ASC
                     """
-        params=[]
+        params=[id]
         result = client.execute(sql, params)
-        workshop = result.rows
+        registers = result.rows
+
+
+        sql2 = "SELECT COUNT(*) WHERE id = ?"
+        params2=[id]
+        attending = client.execute(sql2, params2)
+
+    return render_template("pages/workshop-registers.jinja", registers=registers, attending=attending)
+
+
+#-----------------------------------------------------------
+# Admin page route
+#-----------------------------------------------------------
+@app.get("/admin/")
+def admin():
+    with connect_db() as client:
+        # Get all the things from the DB
+        sql = "SELECT name, id, date FROM workshop WHERE workshop.date >= DATE('now')"
+        params = []
+        result = client.execute(sql, params)
+        workshops = result.rows
 
         sql2 = "SELECT name FROM workshop WHERE workshop.date < DATE('now')"
-        params2=[]
+        params2 = []
         old_workshops = client.execute(sql2, params2)
 
 
 
-    return render_template("pages/admin.jinja", registers=workshop, old=old_workshops)
+    return render_template("pages/admin.jinja", workshops=workshops, old=old_workshops)
 
 
 
