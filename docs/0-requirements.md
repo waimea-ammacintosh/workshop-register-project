@@ -96,7 +96,7 @@ my web app will be collecting personal data such as names, emails, and phone num
 
 ### Impact / Considerations
 
- I will make sure that my web app follows all the principals of the Privacy Act 2020. This includes things such as making sure I only collect relevant data, and making sure I inform the users in some way about what data is being collected, and why. 
+ I will make sure that my web app follows all the principals of the Privacy Act 2020. This includes things such as making sure I only collect relevant data, and making sure I inform the users in some way about what data is being collected, and why. I will need to add a statement somewhere in the website to make sure users can see why their data is being collected, and show the user what is being collected in the form.
 
 
 ## End-User
@@ -109,6 +109,6 @@ my project will need to meet the requirements of my end users because they are t
 
 ### Impact / Considerations
 
-Throughout the project, I will regularly check in with my end-user with project updates and ask them how they think things should be, and take into consideration their ideas and needs for the project. This means that I will have a solid project that takes into consideration the requirements of the end user.
+Throughout the project, I will regularly check in with my end-user with project updates and ask them how they think things should be, and take into consideration their ideas and needs for the project. This means that I will have a solid project that takes into consideration the requirements of the end user. For example, I might need to make the design of the front-end of the web app simple and easy to use, due to older people generally being less technologically adept, and might find a more complex design overwhelming.
 
 

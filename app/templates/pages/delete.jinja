@@ -17,13 +17,15 @@
 
     <a href="/admin" role="button">back</a>
     {# main loop to show all the workshops that you can delete #}
-    <article>
+    <article id="delete">
+        
+        <h3>Delete Workshops</h3>
 
-        <ul>
+        <ul class="w_list">
             {% for workshop in workshops %}
 
                 <li>
-                    <a href="/delete/{{ workshop.id }}">
+                    <a href="/delete/{{ workshop.id }}" role="button">
                         {{ workshop.name }} workshop
                     </a>
                 </li>

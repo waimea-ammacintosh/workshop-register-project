@@ -2,7 +2,8 @@
 # Workshop Register Project
 # Aaron Macintosh
 #-----------------------------------------------------------
-# BRIEF DESCRIPTION OF YOUR PROJECT HERE
+# This is a project to organize and register for different
+# workshops held at a local church.
 #===========================================================
 
 from flask import Flask, render_template, request, flash, redirect, session
@@ -90,6 +91,29 @@ def logout():
 @app.get("/registers/<int:id>")
 def workshop_registers(id):
     with connect_db() as client:
+        # Get the required things from the DB
+
+        sql = "SELECT * FROM people WHERE workshop_id = ? ORDER BY last_name ASC"
+        params=[id]
+        result = client.execute(sql, params)
+        registers = result.rows
+
+
+        sql2 = "SELECT COUNT(*) FROM people WHERE workshop_id = ?"
+        attending = client.execute(sql2, params).rows[0][0]
+
+        sql3 = "SELECT name FROM workshop WHERE id = ?"
+        w_name = client.execute(sql3, params).rows[0][0]
+
+    return render_template("pages/workshop-registers.jinja", w_name=w_name, registers=registers, attending=attending)
+
+
+#-----------------------------------------------------------
+# List of all the registrations
+#-----------------------------------------------------------
+@app.get("/registers/all")
+def all_registers():
+    with connect_db() as client:
         # Get all the things from the DB
         sql = """SELECT
                     workshop.id AS id,
@@ -101,23 +125,31 @@ def workshop_registers(id):
 
                 FROM
                     people AS people
-                FULL JOIN workshop ON people.workshop_id = workshop.id
+                INNER JOIN workshop ON people.workshop_id = workshop.id
 
                 WHERE workshop.date >= DATE('now')
-                WHERE id = ?
 
                 ORDER BY id, l_name ASC
-                    """
-        params=[id]
+              """
+        params=[]
         result = client.execute(sql, params)
         registers = result.rows
 
+        sql2 = """SELECT
+                    workshop.id AS id,
+                    workshop.name AS name
+                FROM
+                    workshop AS workshop
+                LEFT JOIN people ON workshop.id = people.workshop_id
 
-        sql2 = "SELECT COUNT(*) WHERE id = ?"
-        params2=[id]
-        attending = client.execute(sql2, params2)
+                WHERE workshop.date >= DATE('now') AND people.workshop_id IS NULL
 
-    return render_template("pages/workshop-registers.jinja", registers=registers, attending=attending)
+                ORDER BY workshop.id ASC
+              """
+        unregistered= client.execute(sql2, params).rows
+ 
+
+    return render_template("pages/registers-all.jinja", registers=registers, unregistered=unregistered)
 
 
 #-----------------------------------------------------------
@@ -256,7 +288,7 @@ def show_new_workshop_form():
 @app.post("/workshop")
 def add_a_workshop():
     # Get the data from the form
-    name  = request.form.get("name")
+    name  = request.form.get("name").capitalize()
     person = request.form.get("person")
     date = request.form.get("date")
     place = request.form.get("place")

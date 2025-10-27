@@ -17,10 +17,11 @@
 
     {# shows all the people attending the workshop #}
     <article>
-    <h3>{{ w_name }} Workshop</h3>  
+    <h3>All Registers</h3>
         <table>
             <thead>
                 <tr>
+                    <th>Name of Workshop</th>
                     <th>Name of Attendee</th>
                     <th>Last Name of Attendee</th>
                     <th>Phone Number of Attendee</th>
@@ -31,10 +32,13 @@
                 {% for register in registers %}
                     <tr>
                         <td>
-                            <p>{{ register.name }}</p>
+                            <p>{{ register.w_name }}</p>
                         </td>
                         <td>
-                            <p>{{ register.last_name }}</p>
+                            <p>{{ register.f_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ register.l_name }}</p>
                         </td>
                         <td>
                             <p>{{ register.phone }}</p>
@@ -42,18 +46,23 @@
                         <td>
                             <p>{{ register.email }}</p>
                         </td>
-                        {% else %}
-                            {% for i in range(4) %}
-                                <td>
-                                    <p>None!</p>
-                                </td>
-                            {% endfor %}
+                    </tr>
+                {% else %}
+    
+                        <p>None!</p>
+    
                 {% endfor %}
-                    </tr>   
             </tbody>
         </table>
-        
-        <h5 id="">People Attending: {{ attending }}</h5>
+    </article>
+
+        <article>
+    <h3>Unregistered Workshops</h3>
+        <ul>                             
+            {% for workshop in unregistered %}
+                <li>{{ workshop.name }}</li>      
+            {% endfor %}
+        </ul>  
     </article>
 
     <span>

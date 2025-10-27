@@ -16,7 +16,7 @@
 }
 
 
-/* MESSAGES -------------------------------------------- */
+/* MESSAGES ---------------------------------------------- */
 
 #messages ul {
     width: fit-content;
@@ -33,18 +33,29 @@
 #messages .message.success { color: var(--pico-color-green-500); }
 #messages .message.error   { color: var(--pico-color-red-500); }
 
+/* WEB APP COMPONENTS------------------------------------- */
+
 #top {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    width:100%;
 }
+
 
 #new_w {
     max-width: 7rem;
     max-height: 7rem;
-    align-self: flex-start;
     background-color: #87BE81 !important;
     border-color: #87BE81 !important;
+}
+
+
+.w_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 ul li {
@@ -52,7 +63,10 @@ ul li {
 }
 
 #main_list {
+    display: flex;
+    flex-direction: column;
     justify-items: center;
+    align-items: center;
 }
 
 #title {
@@ -61,22 +75,46 @@ ul li {
     align-items: center !important;
 }
 
+
 #name {
     display: flex;
-    width: 10rem;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #E48C00 !important;
+    margin: 0.2rem;
+    border-radius: 0.5rem;
+    --pico-color: var(--pico-primary-inverse);
+    padding: var(--pico-form-element-spacing-vertical) var(--pico-form-element-spacing-horizontal);
+    border: var(--pico-border-width) solid var(--pico-border-color);
+    outline: 0;
+    font-weight: var(--pico-font-weight);
+    font-size: 1rem;
+    line-height: var(--pico-line-height);
+    text-align: center;
+}
+
+#details {
+    display: flex;
+    width: auto;
+    padding: 0.2rem;
     height: 2rem;
     align-items: center;
     justify-content: center;
     border-radius: 0.1rem !important;
     background-color: #EAB258 !important;
-    color: black;
     margin: 0.2rem;
+    box-shadow: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 #record {
     display: flex;
     align-items: center !important;
-    justify-content: space-around !important;
+    justify-content: space-between !important;
 }
 
 [role="button"] {
@@ -85,10 +123,29 @@ ul li {
 }
 
 #link {
-    background-color: #E48C00 !important;
+    color: #373c44;
 }
 
 button {
     background-color: #87BE81 !important;
     border-color: #87BE81 !important;
+}
+
+#admin_title {
+    justify-self: center;
+}
+
+#register {
+    display: flex;
+}
+
+#back {
+    align-self: flex-end;
+}
+
+#delete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

@@ -15,25 +15,31 @@
 
 
 {% block content %}
+
     {# shows all the registers in a table #}
-    <div id="top">
-        <article>
-            <ul>
-                {% for workshop in workshops %}
-                    <li>
-                        <a href="/registers/{{ workshop. id }}" role="button">{{ workshop.name }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </article>
+    <article id="top">
+        <div id="empty"></div>
+        <ul class="w_list">
+                <li>
+                    <a href="/registers/all" role="button">All Registers</a>
+                </li>           
+            {% for workshop in workshops %}
+                <li>
+                    <a href="/registers/{{ workshop. id }}" role="button">{{ workshop.name }} Workshop</a>
+                </li>
+            {% endfor %}
+        </ul>
         <a href="/new" role="button" id="new_w">New Workshop</a>
-   </div> 
+    </article>
+
     <article id="old">
         <h2>Old Workshops:</h2>
         {% for workshop in old %}
         <ul>
             <li>{{ workshop.name }}</li>
         </ul>
+        {% else %}
+            <p>None!</p>
         {% endfor %}
     </article>
  

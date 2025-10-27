@@ -15,7 +15,7 @@
 
 {% block content %}
 
-    <article>
+    <article id="register">
         {# form to register for a workshop #}
         <form action="/register/{{ id }}" method="POST">
 
@@ -45,11 +45,14 @@
                 placeholder="Enter Your Email"
                 required
             >           
-
-            <button>Register</button>
+                <button>Register</button>
 
         </form>
+        <a href="/" role="button" id="back">Back</a>
+    </article>
 
+    <article>
+        <p>This form only collects the information needed to be able to effectively and efficiently organize the workshops.</p>
     </article>
 
 {% endblock %}

@@ -20,12 +20,12 @@
     <head>
         <article id="title">
 
-            <h1>Workshop Organiser 3000</h1>
+            <h1>Workshop Organizer 3000</h1>
 
             {% if session["logged_in"] %}
                 <a href="/admin" role="button">Admin</a>
             {% else %}
-                <a href="/log-in" role="button">Log In</a>
+                <a href="/log-in" role="button">Admin Log In</a>
             {% endif %}
         </article>
     </head>
@@ -36,13 +36,13 @@
             {% for workshop in workshops %}
 
                 <li id="record">
-                    <div>
-                        <a href="/workshop/{{ workshop.id }}" role="button" id="link">
-                            see more
-                        </a>
-                    </div>
                     <div id="name">
-                        {{ workshop.name }} workshop
+                        <strong>{{ workshop.name }} workshop</strong>
+                    </div>
+                    <div id="details">
+                        <a href="/workshop/{{ workshop.id }}" id="link">
+                            <strong>Details</strong>
+                        </a>
                     </div>
                 </li>
 

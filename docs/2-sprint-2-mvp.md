@@ -10,7 +10,7 @@ Develop a bare-bones, working web application that provides the key functionalit
 
 ## Implemented Database Schema
 
-Replace this text with notes regarding the DB schema.
+The database was implemented into the web app and used in many different ways, such as for the admin to see the records of who would be attending which workshops.
 
 ![SCREENSHOT OF DB SCHEMA](screenshots/db3.png)
 
@@ -69,11 +69,17 @@ To fix this, I changed the code in the register form to make sure that it was in
 ![Fixed register](gifs/register-fixed.gif)
 
 
+To make sure that the data base gets updated upon a user registering using the form, I did a test register for the Knife care workshop:
+
+![Shows the database updates](gifs/register-confirm.gif)
+
+
+
 ---
 
 ## Testing Adding Workshops
 
-The adding workshop function is vital to the functionality of the workshop as it means that the admin can add workshops, and I tested it by trying to add a workshop and make sure that all the inputs work, and the workshop is added. While testing the form, It did not work, because I had updated the form adn database, but I had not updated the processing of the form to add it to the database.
+The adding workshop function is vital to the functionality of the workshop as it means that the admin can add workshops, and I tested it by trying to add a workshop and make sure that all the inputs work, and the workshop is added. While testing the form, It did not work, because I had updated the form and database, but I had not updated the processing of the form to add it to the database.
 
 ![Broken adding workshops](gifs/new-broken.gif)
 
@@ -81,7 +87,7 @@ The adding workshop function is vital to the functionality of the workshop as it
 
 To fix the problem, I made sure to update the python processing code to make sure it matches the inputs and the database. 
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Fixed adding workshops](gifs/new-fixed.gif)
 
 
 ---
@@ -98,7 +104,17 @@ Website Data: ![Website Data](screenshots/website-data.png)
 
 ---
 
+## Testing Data shown on individual workshop pages
+
+The data shown on the individual workshops pages is an important part of the UX as if the data is wrong or absent, the users would not have the correct information to attend the workshops that they want to. I checked the website data side by side with the database to make sure that the data matched. The data matched the data in the database.
+
+Database Data: ![Database Data](screenshots/database-workshop-data.png)
+
+Website Data: ![Website Data](screenshots/website-workshop-data.png)
+
+
+---
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+Overall, This sprint has gone well. I has moved the project forward by making a fully functioning "prototype" for the web app to be based off and refined, and can handle the data with ease. One key success point was making the Admin login page work, as that allows for the admin to log-in and be able to easily check the data. Another major success point was making the users be able to register for the workshops, which is the main point of the web app.
 

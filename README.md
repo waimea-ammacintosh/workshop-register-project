@@ -62,8 +62,6 @@ The project demonstrates a number of **advanced digital media (web) techniques**
 - Creating or customising scripts, code or presets
 - Using a combination of steps to manipulate or enhance elements
 - Using a third-party library
-- Using composite effects
 
-** EDIT THESE LISTS ABOVE TO MATCH YOUR PROJECT**
 
 
