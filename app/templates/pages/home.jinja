@@ -17,30 +17,26 @@
 
 {% block content %}
 {# head section #}
-    <head>
-        <article id="title">
-
-            <h1>Workshop Organizer 3000</h1>
-
-            {% if session["logged_in"] %}
-                <a href="/admin" role="button">Admin</a>
-            {% else %}
-                <a href="/log-in" role="button">Admin Log In</a>
-            {% endif %}
-        </article>
-    </head>
+    <article id="title">
+        <h1>Workshop Organizer 3000</h1>
+        {% if session["logged_in"] %}
+            <a href="/admin" role="button">Admin</a>
+        {% else %}
+            <a href="/log-in" role="button">Admin Log In</a>
+        {% endif %}
+    </article>
 
     <article id="main_list">
         {# this loop that lists all workshops #}
         <ul>
             {% for workshop in workshops %}
 
-                <li id="record">
-                    <div id="name">
+                <li class="record">
+                    <div class="name">
                         <strong>{{ workshop.name }} workshop</strong>
                     </div>
-                    <div id="details">
-                        <a href="/workshop/{{ workshop.id }}" id="link">
+                    <div class="details">
+                        <a href="/workshop/{{ workshop.id }}" class="link">
                             <strong>Details</strong>
                         </a>
                     </div>

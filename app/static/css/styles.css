@@ -76,7 +76,7 @@ ul li {
 }
 
 
-#name {
+.name {
     display: flex;
     width: auto;
     align-items: center;
@@ -84,9 +84,7 @@ ul li {
     background-color: #E48C00 !important;
     margin: 0.2rem;
     border-radius: 0.5rem;
-    --pico-color: var(--pico-primary-inverse);
     padding: var(--pico-form-element-spacing-vertical) var(--pico-form-element-spacing-horizontal);
-    border: var(--pico-border-width) solid var(--pico-border-color);
     outline: 0;
     font-weight: var(--pico-font-weight);
     font-size: 1rem;
@@ -94,7 +92,7 @@ ul li {
     text-align: center;
 }
 
-#details {
+.details {
     display: flex;
     width: auto;
     padding: 0.2rem;
@@ -111,7 +109,7 @@ a {
     text-decoration: none;
 }
 
-#record {
+.record {
     display: flex;
     align-items: center !important;
     justify-content: space-between !important;
@@ -122,7 +120,7 @@ a {
     border-color: #EAB258 !important;
 }
 
-#link {
+.link {
     color: #373c44;
 }
 

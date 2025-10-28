@@ -83,13 +83,28 @@ I also changed all the buttons to submit any form this green colour:
 
 This is a vital final step in making sure that the code of a website is valid, secure, and efficient. I tested my code on a validator, and these were the results:
 
-CSS: ![validated css](screenshots/css-validated.png)
+CSS:
 
+![validated css](screenshots/css-validated.png)
+
+Home page:
+
+![validated home page HTML](screenshots/home-validated.png)
+
+It came up with a warning, however it is unimportant and I can ignore it.
+
+New Workshop Form Page:
+
+![broken validated new page HTML](screenshots/new-unvalidated.png)
+
+It came up with some errors. This means that the "Placeholder" values I have in three of the fields need to go, as they are not allowed in that input type. I fixed this problem by changing the code in the Jinja so the placeholders aren't there anymore. When I validated it after these changes, it looked like this:
+
+![validated new page HTML](screenshots/new-validated.png)
 
 
 ---
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+Overall, this sprint was a major success. I managed to turn my MVP into a fully functional, stylized and modern web app for the end-user to use. One major success point was implementing the new admin records page, as that really improved the UI for the admin, as the previous layout was not good, and difficult for the admin to use. Another success point was implementing the new colour scheme. This is because it really moved the project forward in terms of UI, as it was previously just a plain, monochrome web app, which looks unprofessional and did not look good. However, the new colour scheme is modern and aesthetic, and improves the UI a lot. One thing that did not go so well was the implementation of the styles on the main page, as the end-user kept changing their mind on what looks good, so it didn't go as smoothly as I anticipated.
 
