@@ -13,7 +13,7 @@ Develop the system until it is fully featured, with a refined UI and it satisfie
 
 The web app is fully implemented with a refined UI:
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE SYSTEM HERE**
+![Final Implementation](gifs/sprint-3-preview.gif)
 
 
 ---
@@ -52,7 +52,9 @@ From this testing, I came up with a design that is much more modern and looks mo
 
 I showed this to my user and they had some feedback:
 >"I think you should swap the styles and position of the name and the button, as you read left to right."
+
 >"The workshop name and the link should be bold."
+
 >"It should say 'details' instead of 'see more'."
 
 ![New list](screenshots/list-new.png)

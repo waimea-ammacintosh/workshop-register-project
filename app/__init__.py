@@ -36,13 +36,12 @@ ADMIN_U = getenv("ADMIN_U")
 @app.get("/")
 def show_all_workshops():
     with connect_db() as client:
-        # Get all the things from the DB
+        # Get all the data from the DB
         sql = "SELECT id, name, date FROM workshop WHERE date >= DATE('now') ORDER BY name ASC"
         params=[]
         result = client.execute(sql, params)
         workshops = result.rows
 
-        # And show them on the page
         return render_template("pages/home.jinja", workshops=workshops)
 
 #-----------------------------------------------------------
@@ -62,7 +61,7 @@ def login():
     username  = request.form.get("username")
     password = request.form.get("password")
 
-        
+    # Check for if login is correct        
     if password == ADMIN_P and username == ADMIN_U:
         session["logged_in"] = True
         # Go to admin page
@@ -91,21 +90,32 @@ def logout():
 @app.get("/registers/<int:id>")
 def workshop_registers(id):
     with connect_db() as client:
-        # Get the required things from the DB
+        # Get the required data from the DB
 
-        sql = "SELECT * FROM people WHERE workshop_id = ? ORDER BY last_name ASC"
+        # Selecting workshop name
+        sql = "SELECT name FROM workshop WHERE id = ?"
         params=[id]
         result = client.execute(sql, params)
-        registers = result.rows
+        
+        # does the workshop exist?
+        if result.rows:
+            # yes, so it is good to go forwards
+            w_name = result.rows[0][0]
+            
+            # Selecting the people in the database
+            sql2 = "SELECT * FROM people WHERE workshop_id = ? ORDER BY last_name ASC"
+            registers = client.execute(sql2, params).rows
 
+    
+            # Calculating the amount of people for that workshop
+            sql3 = "SELECT COUNT(*) FROM people WHERE workshop_id = ?"
+            attending = client.execute(sql3, params).rows[0][0]
 
-        sql2 = "SELECT COUNT(*) FROM people WHERE workshop_id = ?"
-        attending = client.execute(sql2, params).rows[0][0]
-
-        sql3 = "SELECT name FROM workshop WHERE id = ?"
-        w_name = client.execute(sql3, params).rows[0][0]
-
-    return render_template("pages/workshop-registers.jinja", w_name=w_name, registers=registers, attending=attending)
+            return render_template("pages/workshop-registers.jinja", w_name=w_name, registers=registers, attending=attending)
+        
+        else:
+            # no, so throw an error
+            return not_found_error()
 
 
 #-----------------------------------------------------------
@@ -114,7 +124,7 @@ def workshop_registers(id):
 @app.get("/registers/all")
 def all_registers():
     with connect_db() as client:
-        # Get all the things from the DB
+        # Get all the data from the DB
         sql = """SELECT
                     workshop.id AS id,
                     workshop.name AS w_name,
@@ -158,7 +168,7 @@ def all_registers():
 @app.get("/admin/")
 def admin():
     with connect_db() as client:
-        # Get all the things from the DB
+        # Get workshop data from the DB
         sql = "SELECT name, id, date FROM workshop WHERE workshop.date >= DATE('now')"
         params = []
         result = client.execute(sql, params)

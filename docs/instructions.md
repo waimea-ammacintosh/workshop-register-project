@@ -228,9 +228,9 @@ Use advanced techniques to develop a refined digital media outcome means **all o
    - [x] Your project **assets are managed well** (file naming, appropriate folders, etc.)
    - [x] You have used your own **stylesheets** to customise the look of the site
    - [x] You have made good use of **templates** (Jinja) to organise and structure content
-   - [ ] Your code is **commented** as needed
-   - [ ] Any generated **HTML has been validated**
-   - [ ] Your **CSS has been validated**
+   - [x] Your code is **commented** as needed
+   - [x] Any generated **HTML has been validated**
+   - [x] Your **CSS has been validated**
    - [x] You have **optimised media assets** (e.g. image sizing)
 
 
