@@ -36,7 +36,7 @@ ADMIN_U = getenv("ADMIN_U")
 @app.get("/")
 def show_all_workshops():
     with connect_db() as client:
-        # Get all the data from the DB
+        # Get the data from the DB
         sql = "SELECT id, name, date FROM workshop WHERE date >= DATE('now') ORDER BY name ASC"
         params=[]
         result = client.execute(sql, params)
@@ -75,7 +75,7 @@ def login():
 
 
 #-----------------------------------------------------------
-# Route for logging out of admin, checks username and password
+# Route for logging out of admin
 #-----------------------------------------------------------
 @app.get("/log-out/")
 def logout():
@@ -85,7 +85,7 @@ def logout():
 
 
 #-----------------------------------------------------------
-# Individual workshop list of registrations page route
+# List of individual workshop registrations page route
 #-----------------------------------------------------------
 @app.get("/registers/<int:id>")
 def workshop_registers(id):
@@ -243,7 +243,7 @@ def register_a_person(id):
         workshop = result.rows[0]
         cleaned_name = (''.join(workshop))
 
-        # Go back to the home page
+        # Go back to the workshop page
         flash(f"You are Now Registered for {cleaned_name} workshop")
         return redirect(f"/workshop/{id}")
 

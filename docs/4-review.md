@@ -38,10 +38,3 @@ I also made sure that the front-end of the website was simple enough to use, but
 
 This project was a successful project. Many things went well. One thing that went particularly well was the implementation of an orange colour scheme, as it moved the project forwards a lot in terms of UI and polish, and took little time to implement. Another thing that went well was the sql queries for the back-end of the website, as that is a major part of the web app and database querying. One thing that didn't go so well was that I found last-minute a better way to make the queries for the back-end, which meant I had to scramble to implement the changes while still showing that I had advanced database querying skills. The testing/trialing impacted the final system in many ways. In sprint one, the trialing with my user changed the design from a flat, boxy design, into a vibrant, modern design, with smooth visuals. In sprint 2, the testing allowed me to find errors in my code, and made the code work perfectly. In sprint 3, the trialing and testing allowed me to bring the uninteresting MVP into a fully functional, aesthetic and vibrant web app that works as intended. If I could do this again, I would try to manage my time better. For example, I would spend less time working on the figma design, as I took too long to decide upon a finished product design, so I could have more time to finish the coding process with ease and a little less time pressure. 
 All in all, the project was a success, and my end-user is keen to start using the web app in the future as soon as the opportune time arrives.
-
-Replace these words with a brief review of how the project went in terms of:
-- What went well?
-- What didn't go so well?
-- How did the testing/trialling impact the final system?
-- What would you do differently if you could?
-
